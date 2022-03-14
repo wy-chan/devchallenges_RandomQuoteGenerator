@@ -38,7 +38,15 @@
 ## Overview
 
    <kbd>
-   <img src="images/screenshot.png" alt="screenshot" height="400">
+   <img src="images/todo1.png" alt="screenshot" height="400">
+   </kbd>
+   
+   <kbd>
+   <img src="images/todo2.png" alt="screenshot" height="400">
+   </kbd>
+   
+   <kbd>
+   <img src="images/todo3.png" alt="screenshot" height="400">
    </kbd>
 
 See demo here: https://wy-chan.github.io/devchallenges_TodoApp/
