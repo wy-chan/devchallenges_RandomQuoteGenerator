@@ -52,7 +52,6 @@ Challenge: Create a todo app following given designs.
 - HTML
 - CSS
 - JavaScript
-- [Bootstrap](https://getbootstrap.com/)
 - [React](https://reactjs.org/)
 
 ## Features
