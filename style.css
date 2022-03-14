@@ -43,6 +43,9 @@ font-size: 36px;
 letter-spacing: -0.045em;
   text-align:center;
 }
+button:hover{
+cursor:pointer;
+}
 .todo-options{
   width:100%;
   display: flex;
