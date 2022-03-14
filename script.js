@@ -13,6 +13,8 @@ class MyApp extends React.Component{
     this.handleChange=this.handleChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handleCheckbox=this.handleCheckbox.bind(this);
+    this.handleDelete=this.handleDelete.bind(this);
+    this.handleDeleteAll=this.handleDeleteAll.bind(this);
   }
   
   handlePage(event){
@@ -20,24 +22,31 @@ class MyApp extends React.Component{
       currentPage : event.target.id,
     });
   }
+  
   showPage(){
     switch(this.state.currentPage){
       case "Active":
       return <ListBoxActive 
       todo={this.state.todo} 
       currentPage={this.state.currentPage}
+      handleCheckbox={this.handleCheckbox}
+      handleDelete={this.handleDelete}
       />;
       break;
       case "Completed":
       return <ListBoxCompleted
       todo={this.state.todo} 
       currentPage={this.state.currentPage}
+      handleCheckbox={this.handleCheckbox}
+      handleDelete={this.handleDelete}
       />;
       break;
       default:
       return <ListBox 
       todo={this.state.todo} 
       currentPage={this.state.currentPage}
+      handleCheckbox={this.handleCheckbox}
+      handleDelete={this.handleDelete}
       />;
     }
   }
@@ -56,7 +65,7 @@ class MyApp extends React.Component{
   
   showDelete(){
     if(this.state.currentPage == "Completed"){
-      return <Delete />;
+      return <Delete handleDeleteAll={this.handleDeleteAll}/>;
     }else{
       return null;
     }
@@ -81,8 +90,31 @@ class MyApp extends React.Component{
       });
     } 
   }
-  handleCheckbox(){
-    
+  
+  handleCheckbox(event){
+    const index = event.target.id.substr(6);
+    const newTodo = this.state.todo;
+    newTodo[index].completed = event.target.checked.toString();
+    this.setState({
+         todo: newTodo,
+    });
+  }
+  
+  handleDelete(event){
+    const index = event.target.id.substr(6);
+    const newTodo = this.state.todo;
+    newTodo.splice(index,1);
+    this.setState({
+         todo: newTodo,
+    });
+  }
+  
+  handleDeleteAll(){
+    console.log("deleteAll")
+    const newTodo = this.state.todo.filter(item => item.completed == "false");
+    this.setState({
+         todo: newTodo,
+    });
   }
   
     render(){
@@ -138,9 +170,22 @@ class ListBox extends React.Component{
     return(
       <ul class="all-list" id="all-list">
         {this.props.todo.map(
-          (item) => (item.completed == "true")?
-          <List completed={true} details={item.details} currentPage={this.props.currentPage}/> :
-          <List completed={false} details={item.details} currentPage={this.props.currentPage}/>                               
+          (item, index) => (item.completed == "true")?
+          <List 
+            completed={true} 
+            details={item.details} 
+            currentPage={this.props.currentPage} 
+            handleCheckbox={this.props.handleCheckbox}
+            index={index}
+            handleDelete={this.props.handleDelete}
+            /> :
+          <List completed={false} 
+            details={item.details} 
+            currentPage={this.props.currentPage} 
+            handleCheckbox={this.props.handleCheckbox}
+            index={index}
+            handleDelete={this.props.handleDelete}
+            />                               
           )
         }
      </ul>
@@ -156,9 +201,16 @@ class ListBoxActive extends React.Component{
     return(
       <ul class="all-list" id="all-list">
         {this.props.todo.map(
-          (item) => (item.completed == "true")?
+          (item, index) => (item.completed == "true")?
           null:
-          <List completed={false} details={item.details} currentPage={this.props.currentPage}/>                               
+          <List 
+            completed={false} 
+            details={item.details} 
+            currentPage={this.props.currentPage} 
+            handleCheckbox={this.props.handleCheckbox}
+            index={index}
+            handleDelete={this.props.handleDelete}
+            />                               
           )
         }
      </ul>
@@ -174,8 +226,15 @@ class ListBoxCompleted extends React.Component{
     return(
       <ul class="all-list" id="all-list">
         {this.props.todo.map(
-          (item) => (item.completed == "true")?
-          <List completed={true} details={item.details} currentPage={this.props.currentPage}/> :
+          (item, index) => (item.completed == "true")?
+          <List 
+            completed={true} 
+            details={item.details} 
+            currentPage={this.props.currentPage} 
+            handleCheckbox={this.props.handleCheckbox}
+            index={index}
+            handleDelete={this.props.handleDelete}
+            /> :
           null                               
           )
         }
@@ -189,12 +248,25 @@ class List extends React.Component{
     super(props);
   }
   render(){
-    const className = (this.props.currentPage == "Completed")? "material-icons-outlined delete-list-icon":"material-icons-outlined delete-list-icon hidden";
+    const className = (this.props.currentPage == "Completed")?"delete-btn":"delete-btn hidden";
+    const detailID = "detail"+ this.props.index;
+    const deleteID = "delete"+ this.props.index;
     return(
 <li>
-<input type="checkbox" class="checkbox" defaultChecked={this.props.completed}/>
+<input 
+  type="checkbox" 
+  class="checkbox" 
+  defaultChecked={this.props.completed} 
+  onClick={this.props.handleCheckbox}
+  id={detailID}
+/>
 <label class="label">{this.props.details}</label>
-<button class="delete-btn"><span class={className}>delete</span></button>
+<button 
+  class={className}
+  onClick={this.props.handleDelete}  
+  title="Delete">
+<span class="material-icons-outlined delete-list-icon" id={deleteID}>delete</span>  
+</button>
 </li>
     )
   }
@@ -207,9 +279,12 @@ class Delete extends React.Component{
   }
   render(){
     return(
-      <button class="delete-all-btn">
-      <span class="material-icons-outlined delete-btn-icon">delete</span>
-      delete all</button>
+      <button class="delete-all-btn" onClick={this.props.handleDeleteAll}>
+      <span class="material-icons-outlined delete-btn-icon">
+        delete
+      </span>
+      delete all
+      </button>
     )
   }
 }
