@@ -8,15 +8,15 @@
 
 <div align="center">
   <h3>
-    <a href="https://wy-chan.github.io/devchallenges_TodoApp">
+    <a href="https://wy-chan.github.io/devchallenges_RandomQuoteGenerator">
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/wy-chan/devchallenges_TodoApp">
+    <a href="https://github.com/wy-chan/devchallenges_RandomQuoteGenerator">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/hH6PbOHBdPm6otzw2De5">
+    <a href="https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8">
       Challenge
     </a>
   </h3>
@@ -43,9 +43,9 @@
    
    <img src="images/todo2.png" alt="screenshot" height="200"><img src="images/todo3.png" alt="screenshot" height="200">
 
-See demo here: https://wy-chan.github.io/devchallenges_TodoApp/
+See demo here: https://wy-chan.github.io/devchallenges_RandomQuoteGenerator/
 
-Challenge: Create a todo app following given designs.
+Challenge: Create a quote generator app. 
 
 ### Built With
 
@@ -58,13 +58,12 @@ Challenge: Create a todo app following given designs.
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/hH6PbOHBdPm6otzw2De5) was to build an application to complete the following user stories:
+This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/8Y3J4ucAMQpSnYTwwWW8) was to build an application to complete the following user stories:
 
-- [x] User story: I can add a new task
-- [x] User story: I can complete a task
-- [x] User story: I can toggle between All, Active and Completed
-- [x] User story: I can remove one or all tasks under the Completed tab
-- [ ] User story (optional): Store the data in local storage that when I refresh the page I can still see my progress
+- [x] User story: I can see a random quote
+- [x] User story: I generate a new random quote
+- [x] User story: When I select quote author, I can see a list of quotes from them
+- [x] User story: I can see quote genre under the author
 
 
 ## Acknowledgements
