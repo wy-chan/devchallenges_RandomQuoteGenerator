@@ -75,6 +75,7 @@ This application/site was created as a submission to a [DevChallenges](https://d
 
 - [Google Fonts](https://fonts.google.com/)
 - [Material Icons](https://google.github.io/material-design-icons/)
+- [Quote Garden](https://pprathameshmore.github.io/QuoteGarden/)
 
 ## Contact
 
