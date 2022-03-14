@@ -4,7 +4,7 @@ class MyApp extends React.Component{
     this.state={
       input:"",
       currentPage:"All",
-      todo: [{"details": "Do coding challenges 1", "completed": "false"},{"details": "Do coding challenges 2", "completed": "false"},{"details": "Do coding challenges 3", "completed": "true"},{"details": "Do coding challenges 4", "completed": "true"}],
+      todo: [{"details": "Do coding challenges 1", "completed": "false"},{"details": "Do coding challenges 2", "completed": "false"},{"details": "Do coding challenges 3", "completed": "true"}],
     }; 
     this.handlePage=this.handlePage.bind(this);
     this.showPage=this.showPage.bind(this);
@@ -23,9 +23,9 @@ class MyApp extends React.Component{
     });
   }
   
-  showPage(){
-    switch(this.state.currentPage){
-      case "Active":
+    showPage(){
+    switch(true){
+      case (this.state.currentPage == "Active" && this.state.todo.filter(item=>item.completed=="false").length > 0):
       return <ListBoxActive 
       todo={this.state.todo} 
       currentPage={this.state.currentPage}
@@ -33,7 +33,7 @@ class MyApp extends React.Component{
       handleDelete={this.handleDelete}
       />;
       break;
-      case "Completed":
+      case (this.state.currentPage == "Completed" && this.state.todo.filter(item=>item.completed=="true").length > 0):
       return <ListBoxCompleted
       todo={this.state.todo} 
       currentPage={this.state.currentPage}
@@ -41,13 +41,16 @@ class MyApp extends React.Component{
       handleDelete={this.handleDelete}
       />;
       break;
-      default:
+      case (this.state.currentPage == "All" && this.state.todo.length >0):
       return <ListBox 
       todo={this.state.todo} 
       currentPage={this.state.currentPage}
       handleCheckbox={this.handleCheckbox}
       handleDelete={this.handleDelete}
       />;
+      break;
+      default:
+      return <NoTask />;
     }
   }
   
@@ -272,6 +275,16 @@ class List extends React.Component{
   }
 }
 
+class NoTask extends React.Component{
+  constructor(props){
+    super(props);
+  }
+  render(){
+    return(
+      <p class="no-task">No Task</p>
+    )
+  }
+}
 
 class Delete extends React.Component{
   constructor(props){
