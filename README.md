@@ -38,7 +38,7 @@
 ## Overview
 
    <kbd>
-   <img src="" alt="screenshot" height="400">
+   <img src="images/screenshot.png" alt="screenshot" height="400">
    </kbd>
 
 See demo here: https://wy-chan.github.io/devchallenges_TodoApp/
@@ -63,7 +63,7 @@ This application/site was created as a submission to a [DevChallenges](https://d
 - [x] User story: I can complete a task
 - [x] User story: I can toggle between All, Active and Completed
 - [x] User story: I can remove one or all tasks under the Completed tab
-- [x] User story (optional): Store the data in local storage that when I refresh the page I can still see my progress
+- [] User story (optional): Store the data in local storage that when I refresh the page I can still see my progress
 
 
 ## Acknowledgements
