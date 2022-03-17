@@ -6,6 +6,7 @@ const { randomQuote, authorQuotes, getQuotes, searchQuotes } = require("quotegar
   currentGenre="";
 
  function getQuote() {
+  $("#main-box-list").empty();
   randomQuote()
   .then((quote) => {
     console.log(quote);
@@ -19,16 +20,45 @@ const { randomQuote, authorQuotes, getQuotes, searchQuotes } = require("quotegar
   .catch((error) => {
     console.log(error);
   });
+  hideQuotes();
 }; 
 
 function getAuthorQuotes(){
   authorQuotes(currentAuthor)
   .then((quote) => {
-    console.log(quote);
+    console.log(quote.data);
+    quote.data.map(d => getQuoteList(d))
   })
   .catch((error) => {
     console.log(error);
   });
+  hideQuote();
+}
+
+
+function hideQuote(){
+  $('#main-box').addClass('hidden');
+  $('#author-title').removeClass('hidden');
+}
+
+function hideQuotes(){
+  $('#main-box').removeClass('hidden');
+  $('#author-title').addClass('hidden');
+}
+
+
+function getQuoteList(d){
+  const quoteContainer = document.createElement("div");
+  quoteContainer.classList.add("quote-container");
+  const quoteBox = document.createElement("div");
+  quoteBox.classList.add("quote-box");
+  const text = document.createElement("p");
+  text.classList.add("text");
+  text.textContent = d.quoteText;
+
+  quoteBox.appendChild(text);
+  quoteContainer.appendChild(quoteBox);
+  $('#main-box-list').append(quoteContainer);
 }
 
 $(document).ready(function () {
@@ -46,5 +76,5 @@ $(document).ready(function () {
     console.log(error);
   });
   $('#random-button').on('click', getQuote);
-  $('.author-box').on('click', getAuthorQuotes);
+  $('#author-box').on('click', getAuthorQuotes);
 });

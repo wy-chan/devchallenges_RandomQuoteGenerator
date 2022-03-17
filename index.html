@@ -19,8 +19,9 @@
     <!-- Load jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     
-    <!-- Load my React components. 
-    * type="text/babel" to use JSX(Babel)
+    <!-- Now recursively bundle up all the required modules starting at {script.js} into a single file called bundle.js with the browserify command: browserify main.js -o bundle.js
+    * only put the "bundle.js" file here
+    * type="text/javascript"
     -->
     <script src="bundle.js" type="text/javascript"></script>
     
@@ -37,23 +38,31 @@
   </button>
   </header>
   <main>
+
   <div class="title-box">
-    <h1 class="author">Bill Gates</h1>
+    <h1 id="author-title" class="author hidden"></h1>
   </div>
+  <div id="main-box-list" class="main-box">
+  </div>
+  <div id="main-box" class="main-box">
+
   <div class="quote-container" id="quote-container">
   <div class="quote-box">
-  <p class="text" id="text">“The first rule of any technology used in a business is that automation applied to an efficient operation will magnify the efficiency. The second is that automation applied to an inefficient operation will magnify the inefficiency.”</p >
+  <p class="text" id="text"></p>
   </div>
   </div>
-  <button class="author-box">
+
+  <button class="author-box" id="author-box">
   <div>
-    <h2 class="author">Bill Gates</h2>
-    <p id="genre">business</p>
+    <h2 class="author"></h2>
+    <p id="genre"></p>
   </div>
   <span class="material-icons arrow-icon">
   arrow_right_alt
   </span>
   </button>
+  </div>
+
   </main>
   
 <footer>
