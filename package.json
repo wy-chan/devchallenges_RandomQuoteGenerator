@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "quotegarden": "^1.1.0",
+    "urlsearchparams": "^0.1.1"
+  },
+  "name": "devchallenges_randomquotegenerator",
+  "description": "<!-- Please update value in the {}  -->",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wy-chan/devchallenges_RandomQuoteGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wy-chan/devchallenges_RandomQuoteGenerator/issues"
+  },
+  "homepage": "https://github.com/wy-chan/devchallenges_RandomQuoteGenerator#readme"
+}
