@@ -72,14 +72,14 @@ This application/site was created as a submission to a [DevChallenges](https://d
 #### Basics:
 - [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
+- [Node.js](https://nodejs.org/)
+- [Browserify](https://browserify.org/)
 
 #### Fonts & Icons:
 - [Google Fonts](https://fonts.google.com/)
 - [Material Icons](https://google.github.io/material-design-icons/)
 
 #### npm package:
-- [Node.js](https://nodejs.org/)
-- [Browserify](https://browserify.org/)
 - [Quote Garden](https://pprathameshmore.github.io/QuoteGarden/) 
 
 ## Contact
