@@ -38,10 +38,10 @@
 ## Overview
 
 
-   <img src="images/todo1.png" alt="screenshot" height="400">
+   <img src="images/quote_screen0.png" alt="screenshot" height="400">
    
    
-   <img src="images/todo2.png" alt="screenshot" height="200"><img src="images/todo3.png" alt="screenshot" height="200">
+   <img src="images/quote_screen1.png" alt="screenshot" height="200"><img src="images/quote_screen2.png" alt="screenshot" height="200">
 
 See demo here: https://wy-chan.github.io/devchallenges_RandomQuoteGenerator/
 
